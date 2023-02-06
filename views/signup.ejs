@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HighGGu</title>
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <%- include('header.ejs') %>
+
+        <div class="menubar">
+            <ul>
+                <li class="purpleheart">💜💜💜</li>
+                <li><a href="#">필기구</a></li>
+                <li><a href="#">스티커</a></li>
+                <li><a href="#">떡메</a></li>
+                <li class="purpleheart">💜💜💜</li>
+            </ul>
+        </div>
+        <br><br>
+        <p style="text-align: center;" class="logintext">회원 정보 입력</p>
+        <!-- 여기열-->
+        <form method="post">
+            <input type="text" placeholder="아이디" name="username">
+            <input type="password" placeholder="비밀번호" name="password">
+            <input type="text" placeholder="이름" name="name">
+            <button id="login" type="submit">회원가입</button>
+        </form>
+        <!--여기까지 회원가입 HTML-->
+        <%- include('footer.ejs') %>
+    </body>
+
+</html>

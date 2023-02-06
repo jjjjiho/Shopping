@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+        <title>HighGGu</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    </head>
+    <body>
+        <div>
+            <div id="cart_container"
+                 style="border: 1px solid black; background-color:rgba(255, 255, 255, 0.7); position: fixed; margin-top: -1.3%; width: 30%; height: 101%; left: 100%;">
+                <div id="cart">
+                    <table class="basic" border="0" cellspacing="0" cellpadding="0">
+                        <tr><br><br>
+                            <th class="col">&nbsp;</th>
+                            <th class="col1">상품명</th>
+                            <th class="col2">수량</th>
+                            <th class="col4">합계</th>
+                            <th class="col">&nbsp;</th>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <h1>총금액</h1>
+                <div id="show_total">
+                    0원
+                </div>
+
+                <% if (locals.isAuthenticated) { %>
+                    <button onclick="requestPay()">구매하기</button>
+                <% } else { %>
+                    <button onclick="alert('로그인한 사용자만 구매할 수 있습니다.')">구매하기</button>
+                <% } %>
+                <p id="close_cart_btn"> ></p>
+            </div>
+        </div>
+
+        <%- include('header.ejs') %>
+        <div class="menubar"><!--💜💜💜                    -->
+            <ul>
+                <li class="purpleheart">💜💜💜</li>
+                <li><a href="#">필기구</a></li>
+                <li class="purpleheart">💜💜💜</li>
+            </ul>
+        </div>
+        <br><br>
+        <div class="products">
+            <a class="good">
+                <img src="/pen.jpg">
+                <p>프리즘 볼펜 0.5</p>
+                <p class="price">1,900 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add1">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="pen1.jpg">
+                <p>마일드 젤펜 0.38</p>
+                <p class="price">1,800 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add2">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="pen2.jpg">
+                <p>3멀티펜 05/07mm</p>
+                <p class="price">8,000 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add3">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="pen3.jpg">
+                <p>라이브칼라 SET</p>
+                <p class="price">4,200 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add4">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="pen4.jpg">
+                <p>펜슬 파우치</p>
+                <p class="price">17,500 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add5">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="pen5.jpg">
+                <p>더블 라인펜</p>
+                <p class="price">4,000 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add6">장바구니 추가</button>
+                </div>
+            </a>
+
+            <div class="clearfix"></div>
+        </div>
+        <br></div>
+        <div class="menubar"><!--💜💜💜                    -->
+            <ul>
+                <li class="purpleheart">💜💜💜</li>
+                <li><a href="sticker.html">스티커</a></li>
+                <li class="purpleheart">💜💜💜</li>
+            </ul>
+        </div>
+
+        <br><br>
+        <div class="products">
+            <a class="good">
+                <img src="/sti.jpg">
+                <p>산리오 스티커팩</p>
+                <p class="price">11,400 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add7">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/sti1.jpg">
+                <p>인터넷생활 올인원팩</p>
+                <p class="price">12,500 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add8">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/sti2.jpg">
+                <p>최고심 나는 멋져</p>
+                <p class="price">2,500 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add9">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/sti3.jpg">
+                <p>데일리 드로잉 스티커 </p>
+                <p class="price">1,800 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add10">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/sti4.jpg">
+                <p>주스 냥짤 스티커팩</p>
+                <p class="price">8,500 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add11">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/sti5.jpg">
+                <p>MBTI 과몰입팩</p>
+                <p class="price">16,000 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add12">장바구니 추가</button>
+                </div>
+            </a>
+
+            <div class="clearfix"></div>
+        </div>
+        <br>
+        <div class="menubar"><!--💜💜💜                    -->
+            <ul>
+                <li class="purpleheart">💜💜💜</li>
+                <li><a href="memo.html">떡메</a></li>
+                <li class="purpleheart">💜💜💜</li>
+            </ul>
+        </div>
+
+        <br><br>
+        <div class="products">
+            <a class="good">
+                <img src="/memo.jpg">
+                <p>최고심 할일을 하자</p>
+                <p class="price">2,500 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add13">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/memo1.jpg">
+                <p>무드 메모 패키지</p>
+                <p class="price">9,000 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add14">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/memo2.jpg">
+                <p>Romane 점착 메모지</p>
+                <p class="price">2,500 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add15">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/memo3.jpg">
+                <p>모네 다꾸패키지</p>
+                <p class="price">11,000 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add13">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/memo4.jpg">
+                <p>골트랙커 노트패드</p>
+                <p class="price">2,400 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add14">장바구니 추가</button>
+                </div>
+            </a>
+            <a class="good">
+                <img src="/memo5.jpg">
+                <p>캐비닛 메모지</p>
+                <p class="price">3,000 </p>
+                <div class="add_cart" style="margin-top: -30%;">
+                    <button type="button" title="장바구니 추가" class="btn_add15">장바구니 추가</button>
+                </div>
+            </a>
+
+            <div class="clearfix"></div>
+        </div>
+        <%- include('footer.ejs') %>
+
+        <br><br>
+        <script src="/js/list.js"></script>
+        <script src="/js/hide-and-show-cart.js"></script>
+        <script src="/js/payments.js"></script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HighGGu</title>
+        <link rel="stylesheet" href="../css/main.css">
+        
+    </head>
+
+    <body>
+        <%- include('header.ejs') %>
+        <div class="menubar">
+            <!--💜💜💜                    -->
+            <ul>
+                <li class="purpleheart">💜💜💜</li>
+                <li><a href="#">필기구</a></li>
+                <li><a href="#">스티커</a></li>
+                <li><a href="#">떡메</a></li>
+                <li class="purpleheart">💜💜💜</li>
+            </ul>
+        </div>
+        <br><br>
+        <p style="text-align: center;" class="logintext">로그인</p>
+        <!-- 여기열-->
+        <form method="post">
+            <input type="text" placeholder="아이디" name="username">
+            <input type="password" placeholder="비밀번호" name="password">
+            <button id="login" type="submit">로그인</button>
+        </form>
+        <!--여기까지 로그인 HTML-->
+        <%- include('footer.ejs') %>
+
+    </body>
+
+</html>

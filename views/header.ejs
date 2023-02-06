@@ -1,0 +1,19 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<div class="navbar">
+    <ul>
+        <li><span id="open_cart_btn">CART</span></li>
+        <li><a href="<%= `${locals.baseURL}/` ;%>">HOME</a></li>
+        <li><a href="<%= `${locals.baseURL}/auth/signup` ;%>">JOIN</a></li>
+        <% if (!locals.isAuthenticated) { %>
+        <li><a href="<%= `${locals.baseURL}/auth/login` ;%>">LOGIN</a></li>
+        <% } else { %>
+        <li><a href="<%= `${locals.baseURL}/auth/logout` ;%>">LOGOUT</a></li>
+        <% } %>
+
+    </ul>
+
+</div>
+<img class="high_header" src="/high_header.jpg">
+
